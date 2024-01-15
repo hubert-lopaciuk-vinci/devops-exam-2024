@@ -15,3 +15,4 @@ module.exports = {
     isValid,
     validation8char,
     validationCharSpeciaux
+}
