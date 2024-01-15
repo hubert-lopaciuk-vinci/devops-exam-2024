@@ -1,6 +1,7 @@
 // TODO: Create tests suite for validation function
 const { isValid, validation8char, validationCharSpeciaux} = require('../validations');
 
+
 describe('validations tests suites - isValid', () => {
     test('should return true or false as the function is defined', () => {
         const result = isValid();
@@ -19,6 +20,7 @@ describe('validations tests suites - validation8char', () => {
         expect(result).toBe(true);
     });
 });
+
 
 describe('validations tests suites - validationCharSpeciaux', () => {
     test('should return false as gamertag doesnt have atleast 1 special character', () => {
