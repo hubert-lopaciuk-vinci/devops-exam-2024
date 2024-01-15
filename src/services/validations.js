@@ -3,7 +3,7 @@ const isValid = () => Math.random() >= 0.5;
 
 const validation8char = (gamertag) => {
     return (
-        gamertag.length === 8
+        gamertag.length >= 8
     );
 }
 
