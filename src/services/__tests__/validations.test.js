@@ -13,4 +13,9 @@ describe('validations tests suites - validation8char', () => {
         const result = validation8char("aaa");
         expect(result).toBe(false);
     });
+
+    test('should return true as gamertag has atleast 8 characteres', () => {
+        const result = validation8char("aaaaaaaaaa");
+        expect(result).toBe(true);
+    });
 });

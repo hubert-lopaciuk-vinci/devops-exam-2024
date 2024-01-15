@@ -8,6 +8,6 @@ const validation8char = (gamertag) => {
 }
 
 module.exports = {
-    isEmpty,
+    isValid,
     validation8char,
 };
