@@ -7,7 +7,11 @@ const validation8char = (gamertag) => {
     );
 }
 
+const validationCharSpeciaux = (gamertag) => {
+    return /[&$!è§à_]/.test(gamertag);
+}
+
 module.exports = {
     isValid,
     validation8char,
-};
+    validationCharSpeciaux
