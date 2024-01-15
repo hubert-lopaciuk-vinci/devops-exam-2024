@@ -1,13 +1,15 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
 name: Node.js CI
 
 on:
   push:
     branches:
-      
-main
-pull_request:
-  branches:
-main
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
@@ -16,49 +18,40 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
+        node-version: [14.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-      
-name: Start Time
-      run: echo "Pipeline started at $(date)"
+      - name: Start Time
+        run: echo "Pipeline started at $(date)"
 
-      
-name: Checkout repository
-      uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      
-name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: 14
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14
 
-      
-name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm install
 
-      
-name: Check Prettier
-      run: npm run prettier
+      - name: Check Prettier
+        run: npm run prettier
 
-      
-name: Check Lint
-      run: npm run lint
+      - name: Check Lint
+        run: npm run lint
 
-      
-name: Build
-      run: npm run build
+      - name: Build
+        run: npm run build
 
-      
-name: Run tests
-      run: npm run test
+      - name: Run tests
+        run: npm run test
 
-      
-name: Pipeline Success Message
-      if: ${{ success() }}
-      run: echo "PIPELINE SUCCESS WITHOUT ERRORS"
+      - name: Pipeline Success Message
+        if: ${{ success() }}
+        run: echo "PIPELINE SUCCESS WITHOUT ERRORS"
 
-      
-name: End Time
-      run: echo "Pipeline ended at $(date)"
+      - name: End Time
+        run: echo "Pipeline ended at $(date)"
+    
